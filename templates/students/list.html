@@ -9,7 +9,11 @@
     <h1 class="text-2xl font-bold">Students</h1>
     <div class="flex items-center space-x-4">
         <div>
+<<<<<<< HEAD
             <form method="get" action="{% url 'students:student_list' %}" id="searchForm" class="relative">
+=======
+            <form method="get" action="{% url 'students:list' %}" id="searchForm" class="relative">
+>>>>>>> 9727532 (Hatola hali kop)
                 <button type="submit">
                     <i class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500"></i>
                 </button>
@@ -31,7 +35,11 @@
 <!-- Filters -->
 <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
     <div class="flex flex-wrap gap-4">
+<<<<<<< HEAD
         <form method="get" action="{% url 'students:student_list' %}" id="filterForm">
+=======
+        <form method="get" action="{% url 'students:list' %}" id="filterForm">
+>>>>>>> 9727532 (Hatola hali kop)
              <select name="group" class="border rounded-lg px-4 py-2" onchange="document.getElementById('filterForm').submit();">
                 <option value="">All Groups</option>
                 {% for group in groups %}
@@ -64,7 +72,11 @@
             </select>
 
             <button class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg">
+<<<<<<< HEAD
                 <a href="{% url 'students:student_list' %}" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">Clear Filters</a>
+=======
+                <a href="{% url 'students:list' %}" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">Clear Filters</a>
+>>>>>>> 9727532 (Hatola hali kop)
             </button>
         </form>
     </div>

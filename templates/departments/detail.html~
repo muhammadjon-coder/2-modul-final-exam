@@ -18,11 +18,7 @@
                         </div>
                         <div class="flex items-center space-x-4">
                             <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
-<<<<<<< HEAD
                                 <a href="{% url 'departments:depart_list' %}">
-=======
-                                <a href="{% url 'departments:list' %}">
->>>>>>> 9727532 (Hatola hali kop)
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span class="ml-2">Exit</span>
                                 </a>

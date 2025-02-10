@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 \{% extends 'base.html' %}
+=======
+{% extends 'base.html' %}
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 {% block title %} School CRM - Add/Edit Group  {% endblock %}
@@ -22,6 +26,15 @@
                                 <label for="{{ form.grade_level.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.grade_level.label }}</label>
                                 {{ form.grade_level }}
                             </div>
+<<<<<<< HEAD
+=======
+
+                            <div>
+                                <label for="{{ form.status.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.status.label }}</label>
+                                {{ form.status }}
+                            </div>
+
+>>>>>>> 9727532 (Hatola hali kop)
                             <div>
                                 <label for="{{ form.teacher.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ form.teacher.label }}</label>
                                 {{ form.teacher }}
@@ -52,7 +65,11 @@
                             </div>
                         </div>
                         <div class="flex justify-end space-x-4">
+<<<<<<< HEAD
                             <button type="button" class="px-4 py-2 border rounded-md hover:bg-gray-50"><a href="{% url 'groups:groups_list' %}">Cancel</a></button>
+=======
+                            <button type="button" class="px-4 py-2 border rounded-md hover:bg-gray-50"><a href="{% url 'groups:list' %}">Cancel</a></button>
+>>>>>>> 9727532 (Hatola hali kop)
                             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Save Group</button>
                         </div>
                     </form>

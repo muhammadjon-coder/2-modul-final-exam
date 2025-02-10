@@ -54,9 +54,12 @@ class Teacher(BaseModel):
                 counter += 1
         super().save(*args, **kwargs)
 
+<<<<<<< HEAD
     def get_detail_url(self):
         return reverse('teachers:detail', args=[self.pk])
 
+=======
+>>>>>>> 9727532 (Hatola hali kop)
     def get_update_url(self):
         return reverse('teachers:update', args=[self.pk])
 

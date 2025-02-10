@@ -1,4 +1,9 @@
 from django.db.models import Q
+<<<<<<< HEAD
+=======
+from django.shortcuts import redirect
+
+>>>>>>> 9727532 (Hatola hali kop)
 from departments.models import Department
 from subjects.models import Subject
 from .models import Teacher
@@ -46,14 +51,22 @@ class TeacherCreateView(CreateView):
     template_name = 'teachers/form.html'
 
     def get_success_url(self):
+<<<<<<< HEAD
         return reverse_lazy('teachers:teacher_list')
+=======
+        return reverse_lazy('teachers:list')
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 class TeacherUpdatedView(UpdateView):
     model = Teacher
     form_class = TeacherForm
     template_name = 'teachers/form.html'
+<<<<<<< HEAD
     success_url = reverse_lazy('teachers:teacher_list')
+=======
+    success_url = reverse_lazy('teachers:list')
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 class TeacherDetailView(DetailView):
@@ -64,5 +77,14 @@ class TeacherDetailView(DetailView):
 
 class TeacherDeleteView(DeleteView):
     model = Teacher
+<<<<<<< HEAD
     template_name = 'teachers/list.html'
     success_url = reverse_lazy('teachers:teacher_list')
+=======
+    success_url = reverse_lazy('teachers:list')
+
+    def dispatch(self, request, *args, **kwargs):
+        group = self.get_object()
+        group.delete()
+        return redirect(self.success_url)
+>>>>>>> 9727532 (Hatola hali kop)

@@ -11,10 +11,22 @@ class Department(BaseModel):
         ('in', 'Inactive'),
         ('pd', 'Pending'),
     ]
+<<<<<<< HEAD
 
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     head_department = models.CharField(max_length=100, blank=True, null=True)
+=======
+    HEAD_OF_DEPARTMENT = [
+        ('js', 'Dr. Jane Smith'),
+        ('jd', 'Dr. John Doe'),
+        ('sj', 'Prof. Sarah Johnson'),
+    ]
+
+    name = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000)
+    head_department = models.CharField(max_length=2, choices=HEAD_OF_DEPARTMENT, blank=True)
+>>>>>>> 9727532 (Hatola hali kop)
     location = models.CharField(max_length=500)
     slug = models.SlugField(unique=True, blank=True, null=True)
     email = models.EmailField(unique=True, blank=True, null=True)
@@ -27,7 +39,16 @@ class Department(BaseModel):
         super().save(*args, **kwargs)
 
     def get_detail_url(self):
+<<<<<<< HEAD
         return reverse('departments:detail', args=[self.pk])
+=======
+        return reverse('departments:detail', args=[
+            self.created_at.year,
+            self.created_at.month,
+            self.created_at.day,
+            self.slug
+        ])
+>>>>>>> 9727532 (Hatola hali kop)
 
     def get_update_url(self):
         return reverse('departments:update', args=[self.pk])

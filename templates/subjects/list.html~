@@ -9,11 +9,7 @@
     <h1 class="text-2xl font-bold">Subjects</h1>
     <div class="flex items-center space-x-4">
         <div>
-<<<<<<< HEAD
             <form method="get" action="{% url 'subjects:subject_list' %}" id="searchForm" class="relative">
-=======
-            <form method="get" action="{% url 'subjects:list' %}" id="searchForm" class="relative">
->>>>>>> 9727532 (Hatola hali kop)
                 <button type="submit">
                     <i class="bi bi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500"></i>
                 </button>
@@ -33,11 +29,7 @@
 <!-- Filters -->
 <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
     <div class="flex flex-wrap gap-4">
-<<<<<<< HEAD
         <form method="get" action="{% url 'subjects:subject_list' %}" id="filterForm">
-=======
-        <form method="get" action="{% url 'subjects:list' %}" id="filterForm">
->>>>>>> 9727532 (Hatola hali kop)
             <select name="department" class="border rounded-lg px-4 py-2" onchange="document.getElementById('filterForm').submit();">
                 <option value="">All Departments</option>
                     {% for department in departments %}
@@ -68,11 +60,7 @@
                 <option value="pd" {% if request.GET.status == 'pd' %}selected{% endif %}>Pending</option>
             </select>
             <button class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg">
-<<<<<<< HEAD
                 <a href="{% url 'subjects:subject_list' %}" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">Clear Filters</a>
-=======
-                <a href="{% url 'subjects:list' %}" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">Clear Filters</a>
->>>>>>> 9727532 (Hatola hali kop)
             </button>
         </form>
     </div>

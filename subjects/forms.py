@@ -9,7 +9,10 @@ class SubjectForm(forms.ModelForm):
             'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
         })
     )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9727532 (Hatola hali kop)
     class Meta:
         model = Subject
         fields = ('name', 'department', 'description', 'credit_hours', 'status', 'grade_level', 'prerequisites')
@@ -21,16 +24,25 @@ class SubjectForm(forms.ModelForm):
             }),
             'department': forms.Select(attrs={
                 'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+<<<<<<< HEAD
                 'placeholder': 'Select department',
             }),
             'description': forms.Textarea(attrs={
                 'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
                 'placeholder': 'Enter subject description',
+=======
+            }),
+            'description': forms.Textarea(attrs={
+                'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+>>>>>>> 9727532 (Hatola hali kop)
                 'rows': 4,
             }),
             'credit_hours': forms.NumberInput(attrs={
                 'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+<<<<<<< HEAD
                 'placeholder': 'Enter credit hours',
+=======
+>>>>>>> 9727532 (Hatola hali kop)
             }),
             'status': forms.Select(attrs={
                 'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',

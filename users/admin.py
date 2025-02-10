@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
@@ -9,3 +10,7 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+=======
+
+# Register your models here.
+>>>>>>> 9727532 (Hatola hali kop)

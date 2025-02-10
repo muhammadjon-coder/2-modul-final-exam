@@ -136,13 +136,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+<<<<<<< HEAD
 LOGIN_REDIRECT_URL = 'users:profile'
 LOGIN_URL = 'users:login'
+=======
+LOGIN_REDIRECT_URL = 'users:logout'
+LOGIN_URL = '/users/login/'
+>>>>>>> 9727532 (Hatola hali kop)
 LOGOUT_REDIRECT_URL = 'users:login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
+<<<<<<< HEAD
 EMAIL_PORT = 799
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'Muhammadjon@gmail.com'
 EMAIL_HOST_PASSWORD = 'password'
+=======
+EMAIL_PORT = 797
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tegebgandhi@gmail.com'
+EMAIL_HOST_PASSWORD = 'qwertyuiiopp'
+>>>>>>> 9727532 (Hatola hali kop)

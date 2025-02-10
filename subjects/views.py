@@ -1,5 +1,11 @@
 from django.core.paginator import Paginator
+<<<<<<< HEAD
 from departments.models import Department
+=======
+from django.shortcuts import redirect
+from departments.models import Department
+from django.contrib import messages
+>>>>>>> 9727532 (Hatola hali kop)
 from .models import Subject
 from django.urls import reverse_lazy
 from .forms import SubjectForm
@@ -47,26 +53,55 @@ class SubjectCreateView(CreateView):
     model = Subject
     template_name = 'subjects/form.html'
     form_class = SubjectForm
+<<<<<<< HEAD
     success_url = reverse_lazy('subject_list')
 
     def get_success_url(self):
         return reverse_lazy('subjects:subject_list')
+=======
+    success_url = reverse_lazy('subjects:list')
+
+    def form_valid(self, form):
+        messages.success(self.request, "Subject successfully created!")
+        return super().form_valid(form)
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 class SubjectUpdatedView(UpdateView):
     model = Subject
     template_name = 'subjects/form.html'
     form_class = SubjectForm
+<<<<<<< HEAD
     success_url = reverse_lazy('subjects')
+=======
+    success_url = reverse_lazy('subjects:list')
+
+    def form_valid(self, form):
+        messages.success(self.request, "Subject successfully updated!")
+        return super().form_valid(form)
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 class SubjectDetailView(DetailView):
     model = Subject
     template_name = 'subjects/detail.html'
+<<<<<<< HEAD
     context_object_name = 'subjects'
+=======
+    context_object_name = 'subject'
+>>>>>>> 9727532 (Hatola hali kop)
 
 
 class SubjectDeleteView(DeleteView):
     model = Subject
+<<<<<<< HEAD
     template_name = 'subjects/list.html'
     success_url = reverse_lazy('subjects_list')
+=======
+    success_url = reverse_lazy('subjects:list')
+
+    def dispatch(self, request, *args, **kwargs):
+        group = self.get_object()
+        group.delete()
+        return redirect(self.success_url)
+>>>>>>> 9727532 (Hatola hali kop)
