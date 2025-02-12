@@ -84,8 +84,8 @@ class GroupForm(forms.ModelForm):
             raise forms.ValidationError("At least one subject must be selected.")
         return subjects
 
-    def clean_teachers(self):
-        teachers = self.cleaned_data.get('teachers')
-        if not teachers:
-            raise forms.ValidationError("At least one teacher must be selected.")
-        return teachers
+    def clean_teacher(self):
+        teacher = self.cleaned_data.get('teacher')
+        if not teacher:
+            raise forms.ValidationError("A teacher must be selected.")
+        return teacher

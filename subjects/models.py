@@ -1,8 +1,5 @@
 from django.db import models
-<<<<<<< HEAD
-=======
 from django.utils.text import slugify
->>>>>>> 9727532 (Hatola hali kop)
 from departments.base_models import BaseModel
 from departments.models import Department
 from django.shortcuts import reverse
@@ -21,10 +18,6 @@ class Subject(BaseModel):
         ('9', 'Grade 9'),
         ('10', 'Grade 10'),
         ('11', 'Grade 11'),
-<<<<<<< HEAD
-        ('12', 'Grade 12'),
-=======
->>>>>>> 9727532 (Hatola hali kop)
     ]
 
     PREREQUISITE_CHOICES = [
@@ -46,12 +39,6 @@ class Subject(BaseModel):
     credit_hours = models.PositiveIntegerField()
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='in')
     grade_level = models.CharField(max_length=2, choices=GRADE_LEVEL_CHOICES)
-<<<<<<< HEAD
-    prerequisites = models.CharField(max_length=255, choices=PREREQUISITE_CHOICES, blank=True)
-
-    def get_detail_url(self):
-        return reverse('subjects:detail', args=[self.pk])
-=======
     prerequisites = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
 
@@ -72,7 +59,6 @@ class Subject(BaseModel):
             self.created_at.day,
             self.slug
         ])
->>>>>>> 9727532 (Hatola hali kop)
 
     def get_update_url(self):
         return reverse('subjects:update', args=[self.pk])

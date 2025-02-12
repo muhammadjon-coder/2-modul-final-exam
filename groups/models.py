@@ -1,14 +1,5 @@
 from django.db import models
 from django.urls import reverse
-<<<<<<< HEAD
-
-from subjects.models import Subject
-from teachers.models import Teacher
-
-
-class Group(models.Model):
-    GRADE_LEVEL_CHOICES = [
-=======
 from django.utils.text import slugify
 from subjects.models import Subject
 from teachers.models import Teacher
@@ -25,11 +16,9 @@ class Group(BaseModel):
         ('6', 'Grade 6'),
         ('7', 'Grade 7'),
         ('8', 'Grade 8'),
->>>>>>> 9727532 (Hatola hali kop)
         ('9', 'Grade 9'),
         ('10', 'Grade 10'),
         ('11', 'Grade 11'),
-        ('12', 'Grade 12'),
     ]
 
     SCHEDULE_CHOICES = [
@@ -47,18 +36,11 @@ class Group(BaseModel):
     name = models.CharField(max_length=100)
     grade_level = models.CharField(max_length=2, choices=GRADE_LEVEL_CHOICES)
     status = models.CharField(max_length=2, choices=STATUS_CHOICES)
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='groups', blank=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='groups', blank=True, null=True)
     schedule = models.CharField(max_length=2, choices=SCHEDULE_CHOICES)
     academic_year = models.CharField(max_length=30)
     max_students = models.PositiveIntegerField()
     description = models.TextField()
-<<<<<<< HEAD
-    subjects = models.ManyToManyField(Subject, related_name='groups')
-
-    def get_detail_url(self):
-        return reverse('groups:detail', args=[self.pk])
-
-=======
     slug = models.SlugField(unique=True, blank=True, null=True)
     subjects = models.ManyToManyField(Subject, related_name='groups')
 
@@ -81,7 +63,6 @@ class Group(BaseModel):
             self.created_at.day,
             self.slug
         ])
->>>>>>> 9727532 (Hatola hali kop)
     def get_update_url(self):
         return reverse('groups:update', args=[self.pk])
 
@@ -90,4 +71,5 @@ class Group(BaseModel):
 
     def __str__(self):
         return self.name
+
 
