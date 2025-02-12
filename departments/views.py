@@ -1,3 +1,5 @@
+import json
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from .models import Department
 from subjects.models import Subject
@@ -10,7 +12,7 @@ from django.views.generic import ListView, CreateView, DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 
 
-class DashboardView(ListView):
+class DashboardView(LoginRequiredMixin, ListView):
     model = Student
     template_name = 'dashboard.html'
     context_object_name = 'students'
@@ -23,6 +25,8 @@ class DashboardView(ListView):
         ctx['groups_count'] = Group.objects.filter(status='ac').count()
         ctx['subject_names'] = [subject.name for subject in Subject.objects.all()]
         ctx['subject_teachers_counts'] = [subject.teachers.count() for subject in Subject.objects.all()]
+        ctx['subject_names_json'] = json.dumps(ctx['subject_names'])
+        ctx['subject_teachers_counts_json'] = json.dumps(ctx['subject_teachers_counts'])
         return ctx
 
 
@@ -45,6 +49,10 @@ class DepartmentsUpdateView(UpdateView):
     template_name = 'departments/form.html'
     success_url = reverse_lazy('departments:list')
 
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
 
 class DepartmentsDetailView(DetailView):
     model = Department
@@ -60,3 +68,7 @@ class DepartmentsDeleteView(DeleteView):
         group = self.get_object()
         group.delete()
         return redirect(self.success_url)
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author

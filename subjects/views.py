@@ -7,9 +7,11 @@ from django.urls import reverse_lazy
 from .forms import SubjectForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class SubjectListView(ListView):
+
+class SubjectListView(LoginRequiredMixin, ListView):
     model = Subject
     template_name = 'subjects/list.html'
     context_object_name = 'subjects'
@@ -66,6 +68,10 @@ class SubjectUpdatedView(UpdateView):
         messages.success(self.request, "Subject successfully updated!")
         return super().form_valid(form)
 
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
 
 class SubjectDetailView(DetailView):
     model = Subject
@@ -81,3 +87,8 @@ class SubjectDeleteView(DeleteView):
         group = self.get_object()
         group.delete()
         return redirect(self.success_url)
+
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author

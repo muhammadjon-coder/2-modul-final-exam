@@ -2,10 +2,11 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import UpdateView, FormView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from .models import UserProfile
 from .forms import UserProfileForm, CustomAuthenticationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 User = get_user_model()
 

@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 
-class StudentListView(LoginRequiredMixin, ListView):
+class StudentListView(ListView, LoginRequiredMixin):
     model = Student
     template_name = 'students/list.html'
     context_object_name = 'students'
